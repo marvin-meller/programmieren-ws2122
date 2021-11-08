@@ -10,18 +10,22 @@ public class RectFromTo {
     }
 
     public boolean contains(final Int2 point) {
-        // TODO
-        return false;
+        // final macht, dass der Variable kein neuer Wert mehr zugewiesen werden kann.
+        // Der zugewiesene Wert kann intern ggf. immer noch mutiert werden!
+        final RectFromTo normalized = normalize();
+        return point.getX() >= normalized.from.getX() && point.getX() <= normalized.to.getX() &&
+            point.getY() >= normalized.from.getY() && point.getY() <= normalized.to.getY();
     }
 
     public int area() {
-        // TODO
-        return 0;
+        return Math.abs(to.getX() - from.getX()) * Math.abs(to.getY() * from.getY());
     }
 
     public RectFromTo normalize() {
-        // TODO
-        return null;
+        return new RectFromTo(
+            new Int2(Math.min(from.getX(), to.getX()), Math.min(from.getY(), to.getY())),
+            new Int2(Math.max(from.getX(), to.getX()), Math.max(from.getY(), to.getY()))
+        );
     }
 
     public RectCenterSize toRectCenterSize() {
