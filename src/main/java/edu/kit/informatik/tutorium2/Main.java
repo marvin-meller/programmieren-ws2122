@@ -41,6 +41,16 @@ public class Main {
         }
     }
 
+    public static int[] squares(final int n) {
+        int[] squares = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            squares[i] = i * i;
+        }
+
+        return squares;
+    }
+
     // Teilen von Ganzzahlen verhält sich wie Teilen mit Rest:
     // Sei x = ay + b oder äquivalent a = (x - b) / y.
     // a = x / y (gegen 0 gerundet)
